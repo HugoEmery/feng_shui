@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os 5 Elementos - Feng Shui</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .element-cycle {
+            transition: all 0.5s ease;
+            transform: scale(1);
+        }
+        
+        .element-cycle.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px currentColor;
+        }
+        
+        .cycle-btn {
+            background: var(--cor-destaque);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--raio-borda);
+            cursor: pointer;
+            margin: 0.5rem;
+            font-weight: bold;
+            transition: var(--transicao);
+        }
+        
+        .cycle-btn:hover {
+            background: var(--cor-primaria);
+            transform: translateY(-3px);
+        }
+        
+        .element-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .element-card {
+            border-radius: var(--raio-borda);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .element-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .element-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .element-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">☯</div>
+                <div class="logo-text">Feng Shui</div>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="significado.html" class="nav-link"><i class="fas fa-leaf"></i> Qi</a></li>
+                    <li><a href="principios.html" class="nav-link"><i class="fas fa-yin-yang"></i> Yin & Yang</a></li>
+                    <li><a href="elementos.html" class="nav-link active"><i class="fas fa-fire"></i> 5 Elementos</a></li>
+                    <li><a href="pakua.html" class="nav-link"><i class="fas fa-compass"></i> Pa-Kua</a></li>
+                    <li><a href="casa.html" class="nav-link"><i class="fas fa-house-chimney"></i> Casa</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(135deg, rgba(255, 87, 34, 0.8) 0%, rgba(255, 193, 7, 0.8) 100%), url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover;">
+        <div class="container hero-content">
+            <h1 class="fade-in">Os 5 Elementos</h1>
+            <p class="hero-subtitle fade-in">Madeira, Fogo, Terra, Metal e Água</p>
+            <p class="fade-in">Descubra como estes elementos fundamentais interagem para criar harmonia ou desequilíbrio em seus espaços.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="content-block fade-in">
+                <h2>Introdução aos Cinco Elementos</h2>
+                <p>Na filosofia chinesa, os <strong>Cinco Elementos</strong> (Wu Xing) são categorias que descrevem as interações e relações entre todos os fenômenos. Diferente dos elementos ocidentais, eles representam fases de transformação e ciclos de mudança.</p>
+                
+                <p>Cada elemento está associado a uma direção, cor, forma, estação do ano e aspectos específicos da vida. No Feng Shui, usamos estes elementos para equilibrar energias e criar ambientes harmoniosos.</p>
+            </div>
+
+            <div class="content-block fade-in">
+                <h2>Os Elementos em Detalhe</h2>
+                
+                <div class="element-grid">
+                    <!-- Madeira -->
+                    <div class="element-card" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">
+                        <div class="element-icon">🌳</div>
+                        <h3>Madeira</h3>
+                        <p><strong>Mu</strong></p>
+                        <p><i class="fas fa-compass"></i> Direções: Leste e Sudeste</p>
+                        <p><i class="fas fa-palette"></i> Cores: Verdes</p>
+                        <p><i class="fas fa-shapes"></i> Formas: Retangulares altos</p>
+                        <p><i class="fas fa-seedling"></i> Representa: Crescimento, vitalidade</p>
+                    </div>
+                    
+                    <!-- Fogo -->
+                    <div class="element-card" style="background: linear-gradient(135deg, #FF5722, #FF9800);">
+                        <div class="element-icon">🔥</div>
+                        <h3>Fogo</h3>
+                        <p><strong>Huo</strong></p>
+                        <p><i class="fas fa-compass"></i> Direção: Sul</p>
+                        <p><i class="fas fa-palette"></i> Cores: Vermelhos, laranjas</p>
+                        <p><i class="fas fa-shapes"></i> Formas: Triangulares, pontiagudas</p>
+                        <p><i class="fas fa-bolt"></i> Representa: Paixão, transformação</p>
+                    </div>
+                    
+                    <!-- Terra -->
+                    <div class="element-card" style="background: linear-gradient(135deg, #795548, #A1887F);">
+                        <div class="element-icon">⛰️</div>
+                        <h3>Terra</h3>
+                        <p><strong>Tu</strong></p>
+                        <p><i class="fas fa-compass"></i> Direções: Centro, Sudoeste, Nordeste</p>
+                        <p><i class="fas fa-palette"></i> Cores: Amarelos, terrosos</p>
+                        <p><i class="fas fa-shapes"></i> Formas: Quadradas, planas</p>
+                        <p><i class="fas fa-mountain"></i> Representa: Estabilidade, nutrição</p>
+                    </div>
+                    
+                    <!-- Metal -->
+                    <div class="element-card" style="background: linear-gradient(135deg, #607D8B, #90A4AE);">
+                        <div class="element-icon">⚙️</div>
+                        <h3>Metal</h3>
+                        <p><strong>Jin</strong></p>
+                        <p><i class="fas fa-compass"></i> Direções: Oeste e Noroeste</p>
+                        <p><i class="fas fa-palette"></i> Cores: Brancos, metálicos</p>
+                        <p><i class="fas fa-shapes"></i> Formas: Arredondadas, circulares</p>
+                        <p><i class="fas fa-gem"></i> Representa: Precisão, riqueza</p>
+                    </div>
+                    
+                    <!-- Água -->
+                    <div class="element-card" style="background: linear-gradient(135deg, #2196F3, #03A9F4);">
+                        <div class="element-icon">💧</div>
+                        <h3>Água</h3>
+                        <p><strong>Shui</strong></p>
+                        <p><i class="fas fa-compass"></i> Direção: Norte</p>
+                        <p><i class="fas fa-palette"></i> Cores: Pretos, azuis profundos</p>
+                        <p><i class="fas fa-shapes"></i> Formas: Onduladas, irregulares</p>
+                        <p><i class="fas fa-water"></i> Representa: Sabedoria, fluidez</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block fade-in">
+                <h2>Os Ciclos de Interação</h2>
+                <p>Os elementos não existem isoladamente - eles interagem em ciclos construtivos e destrutivos. Compreender estes ciclos é essencial para aplicar o Feng Shui corretamente.</p>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <button class="cycle-btn" data-cycle="produtivo">
+                        <i class="fas fa-plus-circle"></i> Ciclo Produtivo
+                    </button>
+                    <button class="cycle-btn" data-cycle="destrutivo">
+                        <i class="fas fa-minus-circle"></i> Ciclo Destrutivo
+                    </button>
+                    <button class="cycle-btn" data-cycle="reducao">
+                        <i class="fas fa-balance-scale"></i> Ciclo de Redução
+                    </button>
+                </div>
+                
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+                    <div id="agua" class="element-cycle" style="background: #2196F3; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">Água</div>
+                    <div style="font-size: 1.5rem;">→</div>
+                    <div id="madeira" class="element-cycle" style="background: #4CAF50; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">Madeira</div>
+                    <div style="font-size: 1.5rem;">→</div>
+                    <div id="fogo" class="element-cycle" style="background: #FF5722; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">Fogo</div>
+                    <div style="font-size: 1.5rem;">→</div>
+                    <div id="terra" class="element-cycle" style="background: #795548; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">Terra</div>
+                    <div style="font-size: 1.5rem;">→</div>
+                    <div id="metal" class="element-cycle" style="background: #607D8B; color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">Metal</div>
+                </div>
+                
+                <div class="cards-grid" style="grid-template-columns: 1fr 1fr; margin-top: 3rem;">
+                    <div class="card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #4CAF50, #8BC34A);">
+                            <h3><i class="fas fa-plus-circle card-icon"></i> Ciclo Produtivo (Sheng)</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Também chamado de ciclo de criação ou geração:</p>
+                            <ul class="styled-list">
+                                <li><strong>Água → Madeira:</strong> A água nutre as plantas</li>
+                                <li><strong>Madeira → Fogo:</strong> A madeira alimenta o fogo</li>
+                                <li><strong>Fogo → Terra:</strong> O fogo produz cinzas (terra)</li>
+                                <li><strong>Terra → Metal:</strong> A terra produz minerais</li>
+                                <li><strong>Metal → Água:</strong> O metal condensa a água</li>
+                            </ul>
+                            <p><strong>Aplicação:</strong> Use este ciclo para fortalecer áreas da sua vida que precisam de apoio.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header" style="background: linear-gradient(135deg, #F44336, #EF5350);">
+                            <h3><i class="fas fa-minus-circle card-icon"></i> Ciclo Destrutivo (Ke)</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Também chamado de ciclo de controle ou dominação:</p>
+                            <ul class="styled-list">
+                                <li><strong>Água → Fogo:</strong> A água apaga o fogo</li>
+                                <li><strong>Fogo → Metal:</strong> O fogo derrete o metal</li>
+                                <li><strong>Metal → Madeira:</strong> O metal corta a madeira</li>
+                                <li><strong>Madeira → Terra:</strong> A madeira consome a terra</li>
+                                <li><strong>Terra → Água:</strong> A terra absorve a água</li>
+                            </ul>
+                            <p><strong>Aplicação:</strong> Use este ciclo para reduzir influências negativas ou excessos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block fade-in">
+                <h2>Como Usar os Elementos na Prática</h2>
+                
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Elemento</th>
+                                <th>Como Incorporar</th>
+                                <th>Benefícios</th>
+                                <th>Cuidados</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Madeira</strong></td>
+                                <td>Plantas, móveis de madeira, cores verdes, formas verticais</td>
+                                <td>Crescimento pessoal, saúde, vitalidade</td>
+                                <td>Excesso pode causar ansiedade ou dispersão</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fogo</strong></td>
+                                <td>Velas, luzes, cores vermelhas, triângulos, objetos pontiagudos</td>
+                                <td>Paixão, reconhecimento, energia</td>
+                                <td>Excesso pode causar conflitos ou estresse</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Terra</strong></td>
+                                <td>Cerâmicas, pedras, cores terrosas, formas quadradas</td>
+                                <td>Estabilidade, relacionamentos, nutrição</td>
+                                <td>Excesso pode causar estagnação ou rigidez</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Metal</strong></td>
+                                <td>Objetos metálicos, cores brancas/metálicas, formas redondas</td>
+                                <td>Foco, clareza, prosperidade</td>
+                                <td>Excesso pode causar frieza emocional</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Água</strong></td>
+                                <td>Fontes, aquários, espelhos, cores azuis/pretas, formas onduladas</td>
+                                <td>Sabedoria, comunicação, fluidez</td>
+                                <td>Excesso pode causar instabilidade emocional</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-block fade-in">
+                <h2>Calculadora de Elemento Pessoal</h2>
+                <p>Descubra qual é o seu elemento pessoal baseado no seu ano de nascimento (simplificado):</p>
+                
+                <div style="background: rgba(193, 154, 107, 0.1); padding: 2rem; border-radius: var(--raio-borda); max-width: 500px; margin: 0 auto;">
+                    <form id="element-calculator">
+                        <div style="margin-bottom: 1rem;">
+                            <label for="birth-year"><strong>Ano de Nascimento:</strong></label>
+                            <input type="number" id="birth-year" min="1900" max="2023" value="1990" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: var(--raio-borda); margin-top: 0.5rem;">
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="birth-month"><strong>Mês de Nascimento:</strong></label>
+                            <select id="birth-month" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: var(--raio-borda); margin-top: 0.5rem;">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" style="background: var(--cor-destaque); color: white; border: none; padding: 1rem 2rem; border-radius: var(--raio-borda); cursor: pointer; width: 100%; font-size: 1.1rem;">
+                            <i class="fas fa-calculator"></i> Calcular Meu Elemento
+                        </button>
+                    </form>
+                    
+                    <div id="element-result" style="margin-top: 2rem; display: none; padding: 1rem; background: white; border-radius: var(--raio-borda);">
+                        <!-- Resultado será inserido aqui -->
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button onclick="window.location.href='pakua.html'" class="btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">
+                        <i class="fas fa-arrow-right"></i> Continue para o Pa-Kua
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Feng Shui</h3>
+                <p>Harmonize seu espaço, transforme sua vida. Guia completo dos princípios e aplicações do Feng Shui.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Navegação</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="significado.html">Significado do Qi</a></li>
+                    <li><a href="principios.html">Yin & Yang</a></li>
+                    <li><a href="elementos.html">5 Elementos</a></li>
+                    <li><a href="pakua.html">Pa-Kua</a></li>
+                    <li><a href="casa.html">Feng Shui em Casa</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Glossário</a></li>
+                    <li><a href="#">Ferramentas</a></li>
+                    <li><a href="#">Artigos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Feng Shui - Harmonia e Equilíbrio. Todos os direitos reservados.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Site educativo sobre os princípios do Feng Shui</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
